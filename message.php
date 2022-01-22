@@ -16,6 +16,7 @@ $dbname = "project1";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 include "menu.php";
+include "ErrorHandling.php";
 
 $receiver = $_GET['receiver'];
 
