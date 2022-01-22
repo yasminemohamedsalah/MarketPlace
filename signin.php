@@ -1,7 +1,11 @@
-
+<style>
+body {
+  background-image: url("electronic-devices-background-01-vector-28098779.jpg");
+}
+</style>
 
 <?php
-//session_start();
+
 try{
 $servername="localhost";
 $user="root";
@@ -28,8 +32,7 @@ session_start();
 		$_SESSION["password"]=$row['password'];
 		$_SESSION["address"]=$row['address'];
 		$_SESSION["img"]=$row['Image'];
-
-		$_SESSION["role"]=$row['role'];
+   	$_SESSION["role"]=$row['role'];
 
 	}
 	else
@@ -42,7 +45,9 @@ session_start();
 }
 ?>
 
-<?php include "menu.php";?>
+<?php include "menu.php";
+      include "ErrorHandling.php";
+?>
 
 <html lang="en">
 
@@ -59,7 +64,7 @@ session_start();
 
 
 <div class="container">
-	<h2>Login</h2>
+	<h1 style="color:black"><b>Login</b></h1>
 	<form name="signinform" method="POST" action="">
 	<div class="form-group">
 		<label for="email">Email:</label>
