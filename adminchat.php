@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "menu.php";
+include "ErrorHandling.php";
 ?>
 <style>
 body{
@@ -13,7 +14,6 @@ table,th,td,tr{
 th,td{
   padding: 15px;
   text-align: left;
-   background-color: white;
 }
 th{
   background-color: grey;
@@ -22,7 +22,7 @@ th{
 table{
   width: 100%;
   position:relative;
-
+background-color: white;
 }
 
 .button, .button2{
@@ -52,7 +52,6 @@ table{
 body {
   background-image: url("electronic-devices-background-01-vector-28098779.jpg");
 }
-
 </style>
 
 <body>
