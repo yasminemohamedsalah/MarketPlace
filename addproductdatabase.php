@@ -1,6 +1,7 @@
 <?php
 
 include'menu.php';
+include'ErrorHandling.php';
 
 $servername="localhost";
 $user="root";
@@ -14,8 +15,7 @@ $q=$_POST['quantity'];
 $b=$_POST['brand'];
 $image=$_POST['image'];
 
-$i=$_FILES['img']['name'];
-move_uploaded_file($_FILES["img"]["tmp_name"], "C:\xampp\htdocs\Project\images" . $i);
+
 
 
 $conn= mysqli_connect($servername ,$user,$password, $database);
