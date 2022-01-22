@@ -13,7 +13,8 @@ $dbname = "project1";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 include "menu.php";
- 
+include "ErrorHandling.php";
+
 ?>
 
 <form class="form-inline" method = "POST" action = "">
@@ -53,10 +54,9 @@ if(mysqli_num_rows($lastMessageResult) > 0) {
 		<a href="./message.php?receiver=<?=$sent_by?>">Send message</a>
 		</div><br>
 <?php }
-} 
+}
 else {
 	echo "No conversations yet!";
 }
 ?>
 </div>
-
