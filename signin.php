@@ -37,7 +37,7 @@ session_start();
 	}
 	else
 	{
-		echo "Invalid Email or Password";
+		echo '<script>alert("Invalid Email or Password")</script>';
 	}
 	 if(isset($_SESSION["fname"])) {
     header("Location:home.php");
