@@ -1,18 +1,19 @@
 <?php
 session_start();
 include "menu.php";
-  
+include "ErrorHandling.php";
+
        $servername = "localhost";
        $username = "root";
        $password = "";
        $dbname = "project1";
-              
+
        // Create connection
        $conn = mysqli_connect($servername,$username,$password,$dbname);
        $sql="select * from products where ID = '".$_GET['X']."'";
-       $result = mysqli_query($conn,$sql);	
-  
-	while($row=mysqli_fetch_array($result))	
+       $result = mysqli_query($conn,$sql);
+
+	while($row=mysqli_fetch_array($result))
 	{
               $Name=$row[1];
               $Description=$row[2];
@@ -92,17 +93,17 @@ $database="project1";
 // Create connection
 $conn = new mysqli($servername, $user, $password, $database);
 
-if(isset($_POST['submit'])){ 
+if(isset($_POST['submit'])){
 	$sql="update products set Name ='".$_POST['productname']."', Description = '".$_POST['description']."', Price = '".$_POST['price']."', Quantity = '".$_POST['quantity']."', Brand = '".$_POST['brand']."' where ID = '".$_GET['X']."'";
-	$result = mysqli_query($conn,$sql);		
+	$result = mysqli_query($conn,$sql);
 
 	if(!$result){
 
 		die("Error");
 	}
 	else{
-		
-		
+
+
 		$_SESSION["productname"]=$_POST["productname"];
 		$_SESSION["description"]=$_POST["description"];
 		$_SESSION["price"]=$_POST["price"];
