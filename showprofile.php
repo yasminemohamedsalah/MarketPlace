@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "menu.php";
+include "ErrorHandling.php";
 
 $servername="localhost";
 $user="root";
@@ -11,16 +12,16 @@ $conn = new mysqli($servername, $user, $password, $database);
 
 
 $sql="select * from data where ID = '".$_GET['X']."'";
-$result = mysqli_query($conn,$sql);		
-	if($row=mysqli_fetch_array($result))	
+$result = mysqli_query($conn,$sql);
+	if($row=mysqli_fetch_array($result))
 	{
 		$n=$row['firstname'];
 		$ln=$row['lastname'];
 		$m=$row['mobile'];
 		$e=$row['email'];
 		$p=$row['password'];
-		$a=$row['address'];		
-		$i=$row['image'];		
+		$a=$row['address'];
+		$i=$row['Image'];
 	}
 ?>
 
@@ -46,8 +47,8 @@ $result = mysqli_query($conn,$sql);
 	<form method="post" action = "">
 
         <div class="form-group">
-            <img src="<?php echo $i;?>" alt="Girl in a jacket" width="200" height="200">
-		</div>
+            <img src="<?php echo $i;?>"  width="200" height="200"><br>
+		</div><br><br><br><br><br><br><br><br><br>
 
 		<div class="form-group">
 			<label for="firstname">First Name:</label>
