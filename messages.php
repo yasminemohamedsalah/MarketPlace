@@ -1,4 +1,4 @@
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
@@ -24,7 +24,6 @@ include "ErrorHandling.php";
 <?php
 if(isset($_POST['search'])) {
 	$search=$_POST['name'];
-	// $searchUser = "SELECT * FROM data WHERE name = '$search'";
 	$searchUser = "select * from data where firstname = '$search'";
 	$searchUserResult = mysqli_query($conn,$searchUser) or die( mysqli_error($conn));
 
@@ -37,26 +36,3 @@ if(isset($_POST['search'])) {
 <?php }
 }
 ?>
-<div>
-<?php
-$lastMessage = "SELECT DISTINCT sent_by FROM messages WHERE received_by = ".$_SESSION['ID'];
-$lastMessageResult = mysqli_query($conn,$lastMessage) or die(mysqli_error($conn));
-if(mysqli_num_rows($lastMessageResult) > 0) {
-	while($lastMessageRow = mysqli_fetch_array($lastMessageResult)) {
-		$sent_by = $lastMessageRow['sent_by'];
-		$getSender = "select * from data where ID = '$sent_by'";
-		$getSenderResult = mysqli_query($conn,$getSender) or die(mysqli_error($conn));
-		$getSenderRow = mysqli_fetch_array($getSenderResult);
-		?>
-		<div>
-		<?=$getSenderRow['firstname'];?>
-		<?=$getSenderRow['lastname'];?>
-		<a href="./message.php?receiver=<?=$sent_by?>">Send message</a>
-		</div><br>
-<?php }
-}
-else {
-	echo "No conversations yet!";
-}
-?>
-</div>
