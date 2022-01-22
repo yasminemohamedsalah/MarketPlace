@@ -1,13 +1,9 @@
 <?php
-ob_start();
 session_start();
-include "nav.php";
-include "errorhandler.php";
-if($_SESSION['Role']!=2){
+include "menu.php";
+include "ErrorHandling.php";
 
-    header("Location:outofreach.php");
-  }
-  
+
 ?>
 <?php
 
@@ -18,9 +14,9 @@ $dbname = "project1";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-   $sql="DELETE FROM products where Id ='".$_GET['X']."'";
+   $sql="DELETE FROM products where ID ='".$_GET['X']."'";
 $result = mysqli_query($conn,$sql);
-if($result)	
+if($result)
        {
            header("Location:manageproducts.php");
        }
@@ -29,8 +25,3 @@ if($result)
            echo $sql;
        }
 ?>
-
-
-
-
-<?php ob_end_flush(); ?>
