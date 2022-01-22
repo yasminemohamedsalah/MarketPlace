@@ -6,19 +6,8 @@ body{
 	background-color: black;
 	overflow: hidden;
 }
- .img{
-	float: left;
-	width: 55;
-}
-.topnav ul{
-	float :right;
-	display : block;
-	color:white;
-	text-align: right;
-	padding: 14px 36px;
-	font-size : 29px;
-	margin-right : 20px;
-}
+
+
 .w3-button button{
   color: black;
 }
@@ -29,7 +18,7 @@ body{
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
-	font-size: 17px;
+	font-size: 30px;
 }
 .topnav a:hover{
 	background-color: green;
@@ -53,35 +42,3 @@ body{
 .openNav button{
   color: black;
 }
-
-.myTopnav img{
-	width:40;
-}
-
-   #magnifying-glass {
-		 float: left;
-      font-size: 30px;
-      display: inline-block;
-      width: 0.4em;
-			margin-top: 15px;
-			margin-right: 10px;
-      box-sizing: content-box;
-      height: 0.4em;
-      border: 0.1em solid white;
-      position: relative;
-      border-radius: 0.35em;
-
-    }
-		#magnifying-glass:before {
-			float: left;
-      content: "";
-      display: inline-block;
-      position: absolute;
-      right: -0.25em;
-      bottom: -0.1em;
-      border-width: 0;
-      background: white;
-      width: 0.35em;
-      height: 0.08em;
-      transform: rotate(45deg);
-    }
