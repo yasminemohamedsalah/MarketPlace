@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "menu.php";
+include "ErrorHandling.php";
 ?>
 <head>
 <style>
@@ -18,7 +19,7 @@ th{
 table{
   width: 100%;
   position:relative;
-  
+
 }
 h3{
   text-align:center
@@ -35,7 +36,7 @@ h5{
 }
 .actions{
        color:red;
-       
+
 }
 .button{
   position: relative;
@@ -59,13 +60,13 @@ h5{
 
 <body>
 <div class="container">
-  <div class="row"> 
+  <div class="row">
     <div class="col-lg">
   <table id="mytable">
     <tr>
       <th>Name</th>
       <th>Description</th>
-      <th>Price</th> 
+      <th>Price</th>
       <th>Quantity</th>
       <th>Brand</th>
       <th>Image</th>
@@ -73,23 +74,23 @@ h5{
       <th>Delete</th>
     </tr>
 
-</body>               
+</body>
 
 
-   
+
 <?php
-  
+
        $servername = "localhost";
        $username = "root";
        $password = "";
        $dbname = "project1";
-              
+
        // Create connection
        $conn = mysqli_connect($servername,$username,$password,$dbname);
        $sql="SELECT * from products";
-       $result = mysqli_query($conn,$sql);	
-  
-	while($row=mysqli_fetch_array($result))	
+       $result = mysqli_query($conn,$sql);
+
+	while($row=mysqli_fetch_array($result))
 	{
               $ID=$row[0];
               $Name=$row[1];
@@ -104,24 +105,24 @@ h5{
               echo" <td>$Price</td>";
               echo" <td>$Quantity</td>";
               echo" <td>$Brand</td>";
-              
+
               ?>
              <td> <img src="<?php echo $Image;?>" width=50px> </td>
-              
-             <td><span><a class="actions"href = "editproduct.php?X=<?php echo $row[0]; ?>">Edit</a></span></td>            
+
+             <td><span><a class="actions"href = "editproduct.php?X=<?php echo $row[0]; ?>">Edit</a></span></td>
               <td><span><a class="actions"href = "deleteproduct.php?X=<?php echo $row[0]; ?>">Delete</a></span></td>
-          
-             <?php 
+
+             <?php
               echo"</tr>";
-            
+
             }
             echo"</table>";
-          
+
             ?>
-           
+
           </form>
           <script>
 </script>
 </div>
-</div>   
-</div> 
+</div>
+</div>
