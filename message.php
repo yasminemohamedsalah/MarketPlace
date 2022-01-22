@@ -24,7 +24,7 @@ $getReceiver = "SELECT * FROM data WHERE id = '$receiver'";
 $getReceiverResult = mysqli_query($conn,$getReceiver) or die(mysqli_error($conn));
 $getReceiverRow = mysqli_fetch_array($getReceiverResult);
 ?>
-<img src="./<?=$getReceiverRow['image']?>" class="img-circle" width = "40"/>
+<img src="<?=$getReceiverRow['Image']?>" class="img-circle" width = "40"/>
 <strong><?=$getReceiverRow['firstname']?></strong>
 <table class="table table-striped">
 <?php
@@ -37,9 +37,9 @@ if(mysqli_num_rows($getMessageResult) > 0) {
 	<td>	<p class="text-center" style = "display:inline"><?=$getMessageRow['message']?></p></td>
 		</div>
 		</tr>
-<?php } 
-} 
-else { 
+<?php }
+}
+else {
 	echo "<tr><td><p>No messages yet! Say 'Hi'</p></td></tr>";
 }
 ?>
