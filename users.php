@@ -1,6 +1,7 @@
-<?php 
-session_start(); 
-include "menu.php"; 
+<?php
+session_start();
+include "menu.php";
+include "ErrorHandling.php";
 ?>
 <style>
 body{
@@ -21,7 +22,7 @@ th{
 table{
   width: 100%;
   position:relative;
-  
+
 }
 
 .button, .button2{
@@ -52,7 +53,7 @@ table{
 
 <body>
 <div class="container">
-  <div class="row"> 
+  <div class="row">
     <div class="col-lg">
   <table id="mytable">
     <tr>
@@ -62,7 +63,7 @@ table{
       <th>Profile</th>
       <th>Select</th>
     </tr>
-</body>                        
+</body>
 <?php
     $servername = "localhost";
     $username = "root";
@@ -71,7 +72,7 @@ table{
     // Create connection
     $conn = mysqli_connect($servername,$username,$password,$dbname);
     $sql="SELECT * from data";
-    $result = mysqli_query($conn,$sql);	
+    $result = mysqli_query($conn,$sql);
 ?>
 <form action="" method="post">
 <?php
@@ -84,10 +85,10 @@ table{
     ?>
    <td> <img src="<?php echo $row[7];?>" width=50px> </td>
    <td><span><a class="actions"href = "showprofile.php?X=<?php echo $row[0]; ?>">Profile</a></span></td>
-    
+
 <td><input type="checkbox" value="<?php echo $row['email']; ?>" name="check[ ]"></td>
 
-   <?php 
+   <?php
     echo"</tr>";
   }
   echo"</table>";
@@ -99,34 +100,34 @@ table{
 </form>
   <?php
   if(isset($_POST["delete"])){
-    $checkbox = $_POST['check'];  
-     
-    for ($i=0; $i<count($checkbox);$i++) { 
+    $checkbox = $_POST['check'];
+
+    for ($i=0; $i<count($checkbox);$i++) {
     $delete=$checkbox[$i];
     $sql="delete from data where email ='$delete'";
-    $result=mysqli_query($conn,$sql); 
-    } 
+    $result=mysqli_query($conn,$sql);
+    }
     }
     if(isset($_POST["addadmin"])){
-        $checkbox = $_POST['check'];  
-         
-        for ($i=0; $i<count($checkbox);$i++) { 
+        $checkbox = $_POST['check'];
+
+        for ($i=0; $i<count($checkbox);$i++) {
         $admin=$checkbox[$i];
         $sql="update data set role = 1 where email ='$admin'";
-        $result=mysqli_query($conn,$sql); 
-        } 
+        $result=mysqli_query($conn,$sql);
+        }
         }
     if(isset($_POST["removeadmin"])){
-        $checkbox = $_POST['check'];  
-         
-        for ($i=0; $i<count($checkbox);$i++) { 
+        $checkbox = $_POST['check'];
+
+        for ($i=0; $i<count($checkbox);$i++) {
         $admin2=$checkbox[$i];
         $sql="update data set role = 0 where email ='$admin2'";
-        $result=mysqli_query($conn,$sql); 
-        } 
+        $result=mysqli_query($conn,$sql);
         }
-        
+        }
+
 ?>
  </div>
-</div>   
-</div>     
+</div>
+</div>
