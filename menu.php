@@ -1,4 +1,5 @@
-<html>
+
+
 <head>
 	<title>Home</title>
 	<link rel="stylesheet" type="text/css" href="menu.css">
@@ -15,65 +16,85 @@
 float: left;
 padding-top: 10px;
 }
+button{
+	margin-top: 10px;
+	}
 	</style>
 </head>
 <body>
 	<div class="topnav" id="myTopnav">
 			<?php
-				if(isset($_SESSION['fname'])&&$_SESSION['role']==0)
+
+      //custmor
+				if(isset($_SESSION['fname']) && $_SESSION['role']==0)
 				{
 					echo "<a href='home.php'> Home </a>";
 					echo "<img src='".$_SESSION['img']."' width=30>";
 					echo "<a href='profile.php'>" .$_SESSION['fname']. "</a>";
-					echo "<a href='messages.php'> Contact us </a>";
+					echo "<a href='adminchat	.php'> Contact us </a>";
 					echo "<a href='products.php'> Products </a>";
 					echo "<a href='cart.php'> Cart </a>";
 					echo "<a href='signout.php'> Sign out </a>";
-					echo "<input type='text' placeholder='Search..'>";
-					echo "<div id='magnifying-glass'> <a href=''></a></div>";
+					echo "<form action='search.php' method='post'>
+    					<input type='text' name='searchbar' placeholder='Search..'>
+    					<button type='submit' value='submit' name='submit' class='btn2'>Search</button>
+						</form>";
 
 				}
+				//admin
 			elseif (isset($_SESSION['fname'])&&$_SESSION['role']==1) {
 					echo "<a href='home.php'> Home </a>";
+					echo "<img src='".$_SESSION['img']."' width=30>";
 					echo "<a href='profile.php'>" .$_SESSION['fname']. "</a>";
 					echo "<a href='messages.php'> Messages </a>";
 					echo "<a href='addproduct.php'> Add Products </a>";
-					echo "<a href='deleteproduct.php'> Manage Products </a>";
+					echo "<a href='manageproducts.php'> Manage Products </a>";
 					echo "<a href='users.php'> Users </a>";
 					echo "<a href='signout.php'> Signout </a>";
-					echo "<input type='text' placeholder='Search..'>";
-					echo "<div id='magnifying-glass'> <a href=''></a></div>";
+					echo "<form action='search.php' method='post'>
+							<input type='text' name='searchbar' placeholder='Search..'>
+							<button type='submit' value='submit' name='submit' class='btn2'>Search</button>
+						</form>";
 				}
+				//HR
 				elseif (isset($_SESSION['fname'])&&$_SESSION['role']==2) {
 					echo "<a href='home.php'> Home </a>";
+					echo "<img src='".$_SESSION['img']."' width=30>";
 					echo "<a href='profile.php'>" .$_SESSION['fname']. "</a>";
 					echo "<a href='messages.php'> Messages </a>";
 					echo "<a href='penalty.php'> Add penalty </a>";
 					echo "<a href='signout.php'> Signout </a>";
-					echo "<input type='text' placeholder='Search..'>";
-					echo "<div id='magnifying-glass'> <a href=''></a></div>";
+					echo "<form action='search.php' method='post'>
+							<input type='text' name='searchbar' placeholder='Search..'>
+							<button type='submit' value='submit' name='submit' class='btn2'>Search</button>
+						</form>";
 				}
+				//Auditor
 				elseif (isset($_SESSION['fname'])&&$_SESSION['role']==3) {
 					echo "<a href='home.php'> Home </a>";
 					echo "<a href='profile.php'>" .$_SESSION['fname']. "</a>";
 					echo "<a href='messages.php'> Messages </a>";
 					echo "<a href='signout.php'> Signout </a>";
-					echo "<input type='text' placeholder='Search..'>";
-					echo "<div id='magnifying-glass'> <a href=''></a></div>";
+					echo "<form action='search.php' method='post'>
+    					<input type='text' name='searchbar' placeholder='Search..'>
+    					<button type='submit' value='submit' name='submit' class='btn2'>Search</button>
+						</form>";
 				}
 				else
 				{
-					echo "<a href='home.php'> MarketPlace </a>";
+					echo "<a href='home.php'> NYMMA </a>";
 					echo "<a href='signin.php'> Sign in </a>";
 					echo "<a href='projectbesmellah.php'> Sign up </a>";
-					echo "<input type='text' placeholder='Search..'>";
-					echo "<div id='magnifying-glass'> <a href=''></a></div>";
-					// echo "<span class='glyphicon glyphicon-search'></span>";
+					echo "<form action='search.php' method='post'>
+    					<input type='text' name='searchbar' placeholder='Search..'>
+    					<button type='submit' value='submit' name='submit' class='btn2'>Search</button>
+						</form>";
 
 				}
 				?>
 
 		</div>
 
+
 </body>
-</html>'
+</html>
