@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+
+
 .products{
   border: 5px solid white;
   width: 350px;
@@ -28,12 +30,12 @@
   }
 
 button:hover {
-  background-color: grey;
+  background-color: lightgrey;
 }
 
 body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
 .w3-bar-block .w3-bar-item {padding:20px}
-/* slide show        */
+/* slide show */
 
 * {box-sizing: border-box;}
 body {font-family: Verdana, sans-serif;}
@@ -71,32 +73,19 @@ img {vertical-align: middle;}
   animation-name: fade;
   animation-duration: 1.5s;
 }
-.container {
-  position: relative;
-  text-align: left;
-  color: white;
-  margin-top: 190px;
-
-}
+/* text css(picture) */
 .centered {
   position: absolute;
-  top: 50%;
-  left: 300px;
+  top: 220%;
+  left: 420px;
   transform: translate(-50%, -50%);
 }
-.container2 {
-  position: relative;
-  text-align: right;
-  color: white;
-  margin-top: -360px;
 
-}
 .centered2 {
   position: absolute;
-  top: 90%;
-  right: : 333px;
+   top: 200%;
+    left: 210px;
   transform: translate(160%, 160%);
-  /* margin-left: 70px; */
 
 }
 /* logooooo*/
@@ -134,9 +123,37 @@ img {vertical-align: middle;}
 }
 
 
-
+/* the font of the text on pictures     */
 .p1 {
   font-family: "fantasy", Times, serif;
+   color: white;
+}
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 60.33%;
+  padding: 5px;
+  margin-right: 100px;
+
+}
+
+.column1 {
+  float: right;
+  width: 68.33%;
+  padding: 50px;
+  margin-left: 1000px;
+
+}
+
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+    width: 71.33%;
 }
 
 
@@ -158,42 +175,22 @@ img {vertical-align: middle;}
 </style>
 
 <body>
+
 <?php
 session_start();
 include_once 'menu.php';
+include 'ErrorHandling.php';
 ?>
-
-<!-- Sidebar (hidden by default) -->
-<div class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()"
-  class="w3-bar-item w3-button">Close Menu</a>
-  <a href="" onclick="w3_close()" class="w3-bar-item w3-button">Food</a>
-  <a href="" onclick="w3_close()" class="w3-bar-item w3-button">About</a>
-</div>
-
-<!--<div class ="sale">
-  <img src="4.jpg" alt="AirPods" style="width:100%">
-  </div> --> <!--
-  <div class="products">
-    <h2 style="text-align: center">Categories:</h2>
-  <h3> <button  class="button">Mobile</button></h3><br>
-    <h3><button  class="button">Laptops</button></h3><br>
-   <h3>  <button class="button">Televisions</button></h3><br>
-    <h3> <button class="button">Smart Watches</button></h3><br>
-    <h3> <button class="button">AirPods</button></h3><br>
-
-</div> -->
-   <!-- slide show-->
 
 
 <div class="slideshow-container">
   <div class="curve">
 <div class="mySlides fade">
-  <img src="slide3.png" width="1200" height="400" >
+  <img src="slidee6.png" width="1200" height="400" >
 </div>
 
 <div class="mySlides fade" >
-  <img src="slidee6.png" width="1200" height="400">
+  <img src="slide3.png" width="1200" height="400">
 </div>
 
 <div class="mySlides fade">
@@ -204,7 +201,7 @@ include_once 'menu.php';
 </div>
 <br>
 
-<div style="text-align:center">
+<div style="margin-top:400px; text-align: center" >
   <span class="dot"></span>
   <span class="dot"></span>
   <span class="dot"></span>
@@ -215,7 +212,7 @@ include_once 'menu.php';
 <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
 
   <!-- First Photo Grid-->
-  <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+  <div class="w3-row-padding w3-padding-16 w3-center" id="electronics">
     <div class="w3-quarter">
      <button class="button"> <img src="Airpods.jpeg" alt="AirPods" style="width:100%">
       <h3>Apple AirPods Pro with Wireless Charging Case</h3>
@@ -267,19 +264,17 @@ include_once 'menu.php';
   </div>
 
 
-<!-- !image! -->
-<div class="container">
 
-  <a href= "products.php"><img src="mobiles.jpg" alt="Snow" style="width:47%;"></a>
-  <div class="centered"><h1 class="p1"><b>20% off our mobiles collection</b></h1></div>
 
-</div>
-
-<div class="container2">
-
-  <a href= "products.php"><img src="watches.jpg" alt="Snow1" style="width:46%;"></a>
-  <div class="centered2"><h1 class="p1"><b>10% off on smart watches</b></h1></div><br>
-</div>
+<div class="row">
+  <div class="column">
+   <a href= "products.php"><img src="mobiles.jpg" alt="Snow" style="width:70%; margin-top: 30px"></a>
+    <div class="centered"><h1 class="p1"><b>20% off our mobiles collection</b></h1></div>
+  </div>
+  <div class="column1">
+    <a href= "products.php"><img src="watches.jpg" alt="Snow1" style="margin-left:200px;width:70%; margin-top: -400px;"></a>
+	  <div class="centered2"><h1 class="p1"><b>10% off on smart watches</b></h1></div><br>
+  </div>
 
 
 
@@ -333,14 +328,8 @@ include_once 'menu.php';
 </div>
 
 <script>
-// Script to open and close sidebar
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-}
 
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-}
+
 //slide show
 var slideIndex = 0;
 showSlides();
