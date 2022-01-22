@@ -10,7 +10,9 @@
 </head>
 <?php
 session_start();
-include'menu.php'; ?>
+include'menu.php';
+include'ErrorHandling.php';
+ ?>
 
 <div class="container">
 	<h2>Add a product</h2>
@@ -44,7 +46,7 @@ include'menu.php'; ?>
     </div>
 
 	Product's Picture: <input type="file" name="image" >
-	<br> 
+	<br>
 
 	<button type="submit" class="btn btn-default">Submit</button>
 
