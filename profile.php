@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "menu.php";
+include "ErrorHandling.php";
 ?>
 
 <html>
@@ -16,6 +17,9 @@ include "menu.php";
 		h1{
 			color: white;
 		}
+		body {
+  background-image: url("electronic-devices-background-01-vector-28098779.jpg");
+}
 	</style>
 </head>
 
@@ -58,7 +62,7 @@ include "menu.php";
 
 <button type="submit" value="delete" name="delete" class="btn btn-default">Delete</button>
 
-<button type="submit" value="submit" name="submit" class="btn btn-default">Submit</button>
+<button type="submit" value="submit" name="submit" class="btn btn-default">Save Changes</button>
 
 
 	</form>
