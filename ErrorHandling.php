@@ -1,30 +1,20 @@
+<style>
+h5.error{
+    position: relative;
+   top:350px;
+    left:600px;
+    color : blue;
+}
+</style>
 <?php
-class customException extends Exception {
-  public function errorMessage() {
-    //error message
-    $errorMsg = $this->getMessage().' is not a valid E-Mail address.';
-    return $errorMsg;
-  }
+
+function customError($errno,$errmsg,$errfile,$errline)
+{
+$message=" Error no:".$errno." Error Message:".$errmsg." File name: " .$errfile." Line:".$errline;
+error_log($message,3,"errors.txt");
+?> <h5 class="error"> <?php die("Fatal error , cant proceed.");?></h5>
+
+<?php
 }
-
-/*$email = "someone@example.com";
-
-try {
-  try {
-    //check for "example" in mail address
-    if(strpos($email, "example") !== FALSE) {
-      //throw exception if email is not valid
-      throw new Exception($email);
-    }
-  }
-  catch(Exception $e) {
-    //re-throw exception
-    throw new customException($email);
-  }
-}
-
-catch (customException $e) {
-  //display custom message
-  echo $e->errorMessage();
-}*/
+set_error_handler("customError");
 ?>
