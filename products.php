@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "menu.php";
+include "ErrorHandling.php";
 
 ?>
 <head>
@@ -23,7 +24,7 @@ color:black;
 }
 .actions{
        color:red;
-       
+
 }
 .button{
   position: relative;
@@ -86,16 +87,16 @@ color:black;
        $username = "root";
        $password = "";
        $dbname = "project1";
-              
+
        // Create connection
        $conn = mysqli_connect($servername,$username,$password,$dbname);
-      
+
 
 
        $sql2="SELECT * from products";
        $i=0;
-       $result2 = mysqli_query($conn,$sql2);	
-       while($row2=mysqli_fetch_array($result2))	
+       $result2 = mysqli_query($conn,$sql2);
+       while($row2=mysqli_fetch_array($result2))
        {
        $brands[$i]=$row2[6];
        $i++;
@@ -104,12 +105,12 @@ color:black;
        $brands2=array_unique($brands);
 ?>
 
-       <?php 
+       <?php
            foreach($brands2 as $result) {
-          
+
               ?>
               <option value=<?php echo $result?>><?php echo $result?></option>
-              <?php  
+              <?php
            }
        ?>
 </select>
@@ -125,24 +126,19 @@ color:black;
      <div class="container">
             <div class="row">
 <?php
-       if(isset($_POST["submit"])&& (!empty($_POST['brand']) ||!empty($_POST['color']))){
-     if(empty($_POST['brand'])&& !empty($_POST['color'])){
-$sql="SELECT * from products where Color='".$_POST['color']."'";
-     }
-     else  if(!empty($_POST['brand'])&& empty($_POST['color'])){
+       if(isset($_POST["submit"])&& (!empty($_POST['brand']))){
+
+
        $sql="SELECT * from products where Brand='".$_POST['brand']."'";
-     }
-     else if(!empty($_POST["brand"])&& !empty($_POST["color"])){
-       $sql="SELECT * from products where Brand='".$_POST['brand']."' AND Color='".$_POST['color']."' ";
-     }
+
        }
-       
+
     else $sql="SELECT * from products";
-       $result = mysqli_query($conn,$sql);	
-  
-	while($row=mysqli_fetch_array($result))	
+       $result = mysqli_query($conn,$sql);
+
+	while($row=mysqli_fetch_array($result))
 	{
-           
+
               $ID=$row[0];
               $Name=$row[1];
               $Description=$row[2];
@@ -150,8 +146,8 @@ $sql="SELECT * from products where Color='".$_POST['color']."'";
               $Quantity=$row[4];
               $Image=$row[5];
 ?>
- 
-       <div class=col-md-3>  
+
+       <div class=col-md-3>
               <div class="image position-relative mb-3">
                      <img src=<?php echo ($Image); ?> class="img-thumbnail size">
                      <div class="inner d-flex justify-content-center align-items-center flex-column"> <br>
@@ -163,14 +159,13 @@ $sql="SELECT * from products where Color='".$_POST['color']."'";
               <span class="font-weight-bolder d-block product-home-price details"><h5>Price</h5> <h5 class="sub"><?php echo ($Price);?> EGP</span></h5>
               <span class="font-weight-bolder d-block product-home-price details"><h5>Current rating</h5></span>
               </div>
-           
-           </form> 
-<?php 
+
+           </form>
+<?php
              }
              ?>
-                         
+
 
                      </div>
               </div>
        </div>
-    
